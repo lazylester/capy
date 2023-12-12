@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+to demonstrate Capybara issue, run `rspec spec`
 
-Things you may want to cover:
+notice that the test fails
 
-* Ruby version
+run the app with `rails server` and point your browser to localhost:3000.
 
-* System dependencies
+The 'home' page includes the element:
+`<turbo-cable-stream-source channel="Turbo::StreamsChannel" signed-stream-name="Im1lc3NhZ2VzIg==--0bcf27d938b7e97fc4f64b171124c07cb58545e5ccb8112c5e073611701e9708" connected=""></turbo-cable-stream-source>`
 
-* Configuration
+but Capybara does not find it.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The intent here is to poll the `connected` attribute of the turbo-cable-stream-source element in order to confirm that the actioncable link is connected, so that server actions can be initiated that will be expected to cause elements to appear on the page.
