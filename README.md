@@ -1,5 +1,7 @@
 # README
 
+no need to create/migrate the database... there are no models in this simple app, just one view
+
 to demonstrate Capybara issue, run `rspec spec`
 
 notice that the test fails
